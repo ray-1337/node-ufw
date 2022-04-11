@@ -8,7 +8,7 @@ module.exports.checkNodeVersion = function () {
     throw new Error(`The Node version must be at least v${currentApropriateVersion} or above.`);
   };
 
-  return;
+  return true;
 };
 
 module.exports.checkPlatform = function () {
@@ -21,7 +21,7 @@ module.exports.checkPlatform = function () {
     throw new Error("Your platform must be at least Linux.");
   };
 
-  return;
+  return true;
 };
 
 module.exports.getDistroInfo = function () {
