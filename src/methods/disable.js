@@ -16,6 +16,8 @@ module.exports.disable = async function() {
         console.log(res.stdout);
         return false;
       };
+    } else {
+      return false;
     };
   } catch (err) {
     throw new Error(err);
