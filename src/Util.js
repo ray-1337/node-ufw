@@ -1,4 +1,6 @@
 const {exec} = require("child_process");
+const {promisify} = require("util");
+const promisifiedExec = promisify(exec);
 
 module.exports.checkNodeVersion = function () {
   let currentApropriateVersion = 14;
@@ -24,20 +26,22 @@ module.exports.checkPlatform = function () {
   return true;
 };
 
-module.exports.getDistroInfo = function () {
+module.exports.getDistroInfo = async function () {
   let current = {
     distributorID: null, distributorVersion: null
   };
 
-  // check version
-  exec('lsb_release -i -r', (error, stdout, stderr) => {
-    if (error || stderr) {
+  try {
+    // check version
+    let {stdout, stderr} = await promisifiedExec('lsb_release -i -r');
+
+    if (stderr) {
       throw new Error(`Error while checking Linux distribution information: ${stderr ? stderr : error}`);
     };
 
     if (stdout) {
       // sanitize
-      let parsed = res
+      let parsed = stdout
       .split(/\r|\n/gi) // remove break lines
       .map(x => x.replace(/\s/gi, "")) // remove spaces, only remains [e.g. DistributorID:Ubuntu]
       .filter(x => x); // filter empty string
@@ -55,13 +59,13 @@ module.exports.getDistroInfo = function () {
         if (splitViaColon) current.distributorVersion = splitViaColon.pop().toLowerCase();
       };
     };
-  });
+  } catch {};
 
   return current;
 };
 
-module.exports.checkPlatformExact = function () {
-  let distroInfo = this.getDistroInfo();
+module.exports.checkPlatformExact = async function () {
+  let distroInfo = await this.getDistroInfo();
   if (!distroInfo?.distributorID || !distroInfo?.distributorVersion) {
     throw new Error("Missing distro platform information.");
   };
