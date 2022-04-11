@@ -27,5 +27,8 @@ await nodeUfw.allow.address("192.168.0.1", 6379, "udp");
 await nodeUfw.enable();
 ```
 
+## Documentations
+See [DOCS](https://github.com/ray-1337/node-ufw/blob/master/docs/DOCS.md).
+
 ## LICENSE
 MIT
