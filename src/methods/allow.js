@@ -17,7 +17,7 @@ module.exports.port = async function (port, protocol) {
       if (protocol !== "tcp" || protocol !== "udp") throw new Error('The protocol must be either "tcp" or "udp"');
     };
 
-    let res = await promisifiedExec(`echo "y" | sudo ufw allow ${port} ${protocol || ""}`);
+    let res = await promisifiedExec(`echo "y" | sudo ufw allow ${port}${protocol ? `/${protocol}` : ""}`);
     if (res.stderr) throw new Error(res.stderr);
 
     if (res.stdout) {
