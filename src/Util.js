@@ -75,6 +75,19 @@ module.exports.checkPlatformExact = function () {
   return true;
 };
 
+module.exports.checkAppropriatePort = function(port) {
+  if (typeof port !== "number") {
+    throw new Error("The port must be type of number.");
+  };
+
+  let portLimit = Math.round(2 ** 16 - 1);
+  if (port <= 0 || port > portLimit) {
+    throw new Error("Exceeded port limit.");
+  };
+
+  return true;
+};
+
 // soon to be continued
 // module.exports.checkPlatformVersion = function () {
 //   let distroInfo = this.getDistroInfo();
