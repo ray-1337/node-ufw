@@ -10,5 +10,6 @@ module.exports = {
   deny: require("./methods/deny"),
   disable: require("./methods/disable"),
   enable: require("./methods/enable"),
-  status: require("./methods/status")
+  status: require("./methods/status"),
+  delete: require("./methods/delete")
 };
