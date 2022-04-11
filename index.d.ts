@@ -24,6 +24,6 @@ interface ParsedStatus {
   to: string;
   action: string;
   from: string;
-};
+}
 
 export default nodeUfw;
