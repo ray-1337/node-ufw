@@ -4,16 +4,19 @@
 	"description": "Manipulate UFW (Linux distribution only, works best on Ubuntu) via Node.",
 	"license": "MIT",
 	"repository": "ray-1337/node-ufw",
-  "funding": [
-    {
-      "type": "individual",
-      "url": "https://trakteer.id/ray1337"
-    },
-    {
-      "type": "paypal",
-      "url": "https://paypal.me/ray0001"
-    }
-  ],
+	"funding": [
+		{
+			"type": "individual",
+			"url": "https://trakteer.id/ray1337"
+		},
+		{
+			"type": "paypal",
+			"url": "https://paypal.me/ray0001"
+		}
+	],
+	"scripts": {
+		"test": "ava test.js"
+	},
 	"author": {
 		"name": "Hizkia Ray",
 		"email": "personal@13373333.one",
@@ -22,8 +25,19 @@
 	"engines": {
 		"node": ">=14"
 	},
-	"files": ["./src/Main.js", "index.d.ts"],
-	"keywords": ["ufw", "firewall", "ubuntu", "sudo", "linux", "cli"],
-	"dependencies": {},
-	"devDependencies": {}
+	"files": [
+		"./src/Main.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"ufw",
+		"firewall",
+		"ubuntu",
+		"sudo",
+		"linux",
+		"cli"
+	],
+	"devDependencies": {
+		"ava": "^4.2.0"
+	}
 }
