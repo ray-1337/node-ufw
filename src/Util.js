@@ -36,7 +36,7 @@ module.exports.getDistroInfo = async function () {
     let {stdout, stderr} = await promisifiedExec('lsb_release -i -r');
 
     if (stderr) {
-      throw new Error(`Error while checking Linux distribution information: ${stderr ? stderr : error}`);
+      throw new Error(`Error while checking Linux distribution information: ${stderr}`);
     };
 
     if (stdout) {
