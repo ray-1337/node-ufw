@@ -20,7 +20,7 @@
 		"url": "https://13373333.one"
 	},
 	"engines": {
-		"node": ">=12"
+		"node": ">=14"
 	},
 	"files": ["index.js", "index.d.ts"],
 	"keywords": ["ufw", "firewall", "ubuntu", "sudo", "linux", "cli"],
