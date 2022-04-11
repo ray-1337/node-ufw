@@ -93,8 +93,9 @@ module.exports.checkAppropriateIP = function(address) {
     throw new Error("The address must be type of number.");
   };
 
-  // https://stackoverflow.com/a/5284410
-  let regex = new RegExp(/\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/gi);
+  // https://blog.markhatton.co.uk/2011/03/15/regular-expressions-for-ip-addresses-cidr-ranges-and-hostnames/
+  // also support subnet/net mask
+  let regex = new RegExp(/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(3[0-2]|[1-2][0-9]|[0-9]))?$/gi);
   if (!address.match(regex)) {
     throw new Error(`The IP address is not matched with ${regex.toString()} regular expressions.`);
   };
