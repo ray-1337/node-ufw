@@ -22,7 +22,7 @@
 	"engines": {
 		"node": ">=14"
 	},
-	"files": ["index.js", "index.d.ts"],
+	"files": ["./src/Main.js", "index.d.ts"],
 	"keywords": ["ufw", "firewall", "ubuntu", "sudo", "linux", "cli"],
 	"dependencies": {},
 	"devDependencies": {}
