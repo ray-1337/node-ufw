@@ -2,7 +2,10 @@ const {exec} = require("child_process");
 const {promisify} = require("util");
 const promisifiedExec = promisify(exec);
 
-// disable
+/**
+  * Disable ufw. (root/sudo access is mandatory)
+  * @returns {Promise<Boolean>} Returns a boolean.
+*/
 module.exports.disable = async function() {
   try {
     let res = await promisifiedExec(`echo "y" | sudo ufw disable`);

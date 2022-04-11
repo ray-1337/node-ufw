@@ -3,6 +3,12 @@ const {promisify} = require("util");
 const promisifiedExec = promisify(exec);
 const util = require("../Util");
 
+/**
+  * Deny incoming requests through specific port. (root/sudo access is mandatory)
+  * @param {number} port The connection pange. From range 1 - 65535.
+  * @param {"udp" | "tcp" | undefined} protocol The protocol.
+  * @returns {Promise<Boolean>} Returns a boolean.
+*/
 module.exports.port = async function (port, protocol) {
   try {
     if (!port) throw new Error("Missing port input.");
@@ -37,6 +43,13 @@ module.exports.port = async function (port, protocol) {
   };
 };
 
+/**
+  * Deny incoming requests through specific (IP) address. (root/sudo access is mandatory)
+  * @param {string} address IP address, supported by subnet/net mask. From range 0.0.0.0 to 255.255.255.255
+  * @param {number | undefined} port The connection pange. From range 1 - 65535.
+  * @param {"udp" | "tcp" | undefined} protocol The protocol.
+  * @returns {Promise<Boolean>} Returns a boolean.
+*/
 module.exports.address = async function (address, port, protocol) {
   try {
     // address validation

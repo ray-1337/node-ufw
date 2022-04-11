@@ -2,7 +2,12 @@ const {exec} = require("child_process");
 const {promisify} = require("util");
 const promisifiedExec = promisify(exec);
 
-module.exports = function(raw) {
+/**
+  * List of currently activated ufw. (root/sudo access is mandatory)
+  * @param {boolean} [raw=false] A raw version of "ufw status"
+  * @returns {Promise<string | {to: string, action: string, from: string}[]>} Returns a string if "raw" param is included, otherwise a list of array with to/action/from.
+*/
+module.exports = async function(raw) {
   if (raw && typeof raw !== "boolean") {
     throw new Error("The raw must be type of boolean.");
   };

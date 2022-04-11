@@ -2,6 +2,10 @@ const {exec} = require("child_process");
 const {promisify} = require("util");
 const promisifiedExec = promisify(exec);
 
+/**
+  * Enable ufw. (root/sudo access is mandatory)
+  * @returns {Promise<Boolean>} Returns a boolean.
+*/
 module.exports.enable = async function() {
   try {
     // https://serverfault.com/a/790150
