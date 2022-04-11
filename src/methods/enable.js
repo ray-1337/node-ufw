@@ -14,12 +14,7 @@ module.exports = async function() {
     if (res.stderr) throw new Error(res.stderr);
 
     if (res.stdout) {
-      if (res.stdout == "Firewall is active and enabled on system startup") {
-        return true;
-      } else {
-        console.log(res.stdout);
-        return false;
-      };
+      return true;
     } else {
       return false;
     };
