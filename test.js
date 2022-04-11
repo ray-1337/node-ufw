@@ -1,5 +1,6 @@
 const test = require("ava");
 const nodeUfw = require("./src/Main");
+const nodeUfwUtil = require("./src/Util");
 
 test("exceeded port", async (t) => {
   await t.throwsAsync(async () => {
@@ -39,4 +40,10 @@ test("sfw disabled", async (t) => {
 
 test("sfw enabled", async (t) => {
   t.true(await nodeUfw.enable());
+});
+
+test("check version", async (t) => {
+  t.true(nodeUfwUtil.checkNodeVersion());
+  t.true(nodeUfwUtil.checkPlatform());
+  t.true(await nodeUfwUtil.checkPlatformExact());
 });
