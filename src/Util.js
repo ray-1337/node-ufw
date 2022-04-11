@@ -90,7 +90,7 @@ module.exports.checkAppropriatePort = function(port) {
 
 module.exports.checkAppropriateIP = function(address) {
   if (typeof address !== "string") {
-    throw new Error("The address must be type of number.");
+    throw new Error("The address must be type of string.");
   };
 
   // https://blog.markhatton.co.uk/2011/03/15/regular-expressions-for-ip-addresses-cidr-ranges-and-hostnames/
