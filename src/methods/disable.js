@@ -6,7 +6,7 @@ const promisifiedExec = promisify(exec);
   * Disable ufw. (root/sudo access is mandatory)
   * @returns {Promise<Boolean>} Returns a boolean.
 */
-module.exports.disable = async function() {
+module.exports = async function() {
   try {
     let res = await promisifiedExec(`echo "y" | sudo ufw disable`);
 

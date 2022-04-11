@@ -6,7 +6,7 @@ const promisifiedExec = promisify(exec);
   * Enable ufw. (root/sudo access is mandatory)
   * @returns {Promise<Boolean>} Returns a boolean.
 */
-module.exports.enable = async function() {
+module.exports = async function() {
   try {
     // https://serverfault.com/a/790150
     let res = await promisifiedExec(`echo "y" | sudo ufw enable`);
