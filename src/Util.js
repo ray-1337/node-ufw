@@ -88,6 +88,20 @@ module.exports.checkAppropriatePort = function(port) {
   return true;
 };
 
+module.exports.checkAppropriateIP = function(address) {
+  if (typeof address !== "string") {
+    throw new Error("The address must be type of number.");
+  };
+
+  // https://stackoverflow.com/a/5284410
+  let regex = new RegExp(/\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/gi);
+  if (!address.match(regex)) {
+    throw new Error(`The IP address is not matched with ${regex.toString()} regular expressions.`);
+  };
+
+  return true;
+};
+
 // soon to be continued
 // module.exports.checkPlatformVersion = function () {
 //   let distroInfo = this.getDistroInfo();
