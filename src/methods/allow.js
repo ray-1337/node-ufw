@@ -59,9 +59,11 @@ module.exports.address = async function (address, port, protocol) {
     if (!checkAddress) return false;
 
     // port validation
-    if (typeof port !== "number") throw new Error("The port must be type of number.");
-    let checkPort = util.checkAppropriatePort(port);
-    if (!checkPort) return false;
+    if (port) {
+      if (typeof port !== "number") throw new Error("The port must be type of number.");
+      let checkPort = util.checkAppropriatePort(port);
+      if (!checkPort) return false;
+    };
 
     // protocol (tcp/udp) validation
     if (protocol) {
