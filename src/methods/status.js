@@ -26,8 +26,6 @@ module.exports = async function(raw) {
         if (!parsedStatus.length) return [];
         
         let findAfterFrom = parsedStatus.findIndex(x => x == "----");
-        if (!findAfterFrom.length) return [];
-
         let afterSlice = parsedStatus.slice(findAfterFrom + 1, parsedStatus.length);
         if (!afterSlice.length) return [];
         
