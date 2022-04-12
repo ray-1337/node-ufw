@@ -4,7 +4,9 @@ const promisifiedExec = promisify(exec);
 const process = require("process");
 
 module.exports.checkSudo = function () {
-  if (!process.getuid()) {
+  if (process.getuid && process.getuid() == 0) {
+    return true;
+  } else {
     throw new Error("You need to be root to run this package.");
   };
 };
