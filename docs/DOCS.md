@@ -55,3 +55,7 @@ Disables and resets firewall to installation defaults. **No prompt. Use this wis
 ## .status(raw?: boolean)
 List of currently activated UFW.
 > returns `Promise<string | {to: string, action: string, from: string }[]>`
+
+## .logging(type: "off" | "on" | "low" | "medium" | "high" | "full")
+Set/toggle UFW logging.
+> returns `Promise<Boolean>`

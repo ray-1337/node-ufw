@@ -8,5 +8,6 @@ module.exports = {
   status: require("./methods/status"),
   delete: require("./methods/delete"),
   reset: require("./methods/reset"),
-  reload: require("./methods/reload")
+  reload: require("./methods/reload"),
+  logging: require("./methods/logging")
 };

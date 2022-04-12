@@ -13,6 +13,8 @@ declare const nodeUfw: {
 
   status: (raw?: boolean) => Promise<string | Array<ParsedStatus>>;
 
+  logging: (type: LoggingType) => Promise<Boolean>;
+
   allow: {
     port: (port: number, protocol?: "udp" | "tcp") => Promise<Boolean>;
     address: (address: string, port?: number, protocol?: "udp" | "tcp") => Promise<Boolean>;
@@ -23,6 +25,8 @@ declare const nodeUfw: {
     address: (address: string, port?: number, protocol?: "udp" | "tcp") => Promise<Boolean>;
   };
 };
+
+type LoggingType = 'off' | 'on' | 'low' | 'medium' | 'high' | 'full';
 
 interface ParsedStatus {
   to: string;
