@@ -3,7 +3,6 @@
 	"version": "1.0.0-alpha.2",
 	"description": "Manipulate UFW (Linux distribution only, works best on Ubuntu) via Node.",
 	"license": "MIT",
-	"repository": "ray-1337/node-ufw",
 	"funding": [
 		{
 			"type": "individual",
@@ -14,6 +13,13 @@
 			"url": "https://paypal.me/ray0001"
 		}
 	],
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/ray-1337/node-ufw.git"
+  },
+	"bugs": {
+    "url": "https://github.com/ray-1337/node-ufw/issues"
+  },
 	"scripts": {
 		"test": "ava test.js"
 	},
