@@ -1,6 +1,6 @@
 {
 	"name": "node-ufw",
-	"version": "1.0.0-alpha.2",
+	"version": "1.0.0-alpha.3",
 	"description": "Manipulate UFW (Linux distribution only, works best on Ubuntu) via Node.",
 	"license": "MIT",
 	"funding": [
