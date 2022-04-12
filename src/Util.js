@@ -1,6 +1,13 @@
 const {exec} = require("child_process");
 const {promisify} = require("util");
 const promisifiedExec = promisify(exec);
+const process = require("process");
+
+module.exports.checkSudo = function () {
+  if (!process.getuid()) {
+    throw new Error("You need to be root to run this package.");
+  };
+};
 
 module.exports.checkNodeVersion = function () {
   let currentApropriateVersion = 14;

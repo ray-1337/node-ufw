@@ -10,6 +10,7 @@ const util = require("../Util");
   * @returns {Promise<Boolean>} Returns a boolean.
 */
 module.exports.port = async function (port, protocol) {
+  util.checkSudo();
   util.checkNodeVersion();
   util.checkPlatform();
   await util.checkPlatformExact();
