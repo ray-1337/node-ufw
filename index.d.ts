@@ -34,4 +34,4 @@ interface ParsedStatus {
   from: string;
 }
 
-export default nodeUfw;
+export = nodeUfw;
