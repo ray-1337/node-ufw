@@ -4,6 +4,13 @@
 	"description": "Manipulate UFW (Linux distribution only, works best on Ubuntu) via Node.",
 	"license": "MIT",
 	"typings": "./index.d.ts",
+	"main": "./index.js",
+	"exports": {
+		".": [
+      { "require": "./index.js" },
+      "./index.js"
+    ]
+	},
 	"funding": [
 		{
 			"type": "individual",
@@ -15,12 +22,12 @@
 		}
 	],
 	"repository": {
-    "type": "git",
-    "url": "https://github.com/ray-1337/node-ufw.git"
-  },
+		"type": "git",
+		"url": "https://github.com/ray-1337/node-ufw.git"
+	},
 	"bugs": {
-    "url": "https://github.com/ray-1337/node-ufw/issues"
-  },
+		"url": "https://github.com/ray-1337/node-ufw/issues"
+	},
 	"scripts": {
 		"test": "ava test.js"
 	},
