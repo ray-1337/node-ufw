@@ -5,7 +5,7 @@ Manipulate UFW (Linux distribution only, works best on Ubuntu) via Node.js.
 Only supported on [Node.js](https://nodejs.org) version 14 or above, and Ubuntu version 18 or above.
 
 ## Installation
-```
+```shell
 # npm user
 $ npm install node-ufw
 
@@ -31,4 +31,4 @@ await nodeUfw.enable();
 See [DOCS](https://github.com/ray-1337/node-ufw/blob/master/docs/DOCS.md).
 
 ## LICENSE
-MIT
+See [LICENSE](https://github.com/ray-1337/node-ufw/blob/master/LICENSE).
