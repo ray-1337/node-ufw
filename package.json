@@ -39,10 +39,6 @@
 	"engines": {
 		"node": ">=14"
 	},
-	"files": [
-		"./src/Main.js",
-		"index.d.ts"
-	],
 	"keywords": [
 		"ufw",
 		"firewall",
