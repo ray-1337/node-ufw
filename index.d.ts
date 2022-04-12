@@ -3,9 +3,13 @@ declare const nodeUfw: {
 
   version: string;
 
-  disable: Promise<Boolean>;
+  disable: () => Promise<Boolean>;
 
-  enable: Promise<Boolean>;
+  enable: () => Promise<Boolean>;
+
+  reset: () => Promise<Boolean>;
+
+  reload: () => Promise<Boolean>;
 
   status: (raw?: boolean) => Promise<string | Array<ParsedStatus>>;
 
