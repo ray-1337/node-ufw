@@ -1,5 +1,3 @@
-const util = require("./Util");
-
 module.exports = {
   name: require("../package.json").name,
   version: require("../package.json").version,
@@ -8,5 +6,7 @@ module.exports = {
   disable: require("./methods/disable"),
   enable: require("./methods/enable"),
   status: require("./methods/status"),
-  delete: require("./methods/delete")
+  delete: require("./methods/delete"),
+  reset: require("./methods/reset"),
+  reload: require("./methods/reload")
 };

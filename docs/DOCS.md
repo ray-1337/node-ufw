@@ -44,6 +44,14 @@ Disable UFW.
 Enable UFW.
 > returns `Promise<Boolean>`
 
+## .reload()
+Reloads firewall.
+> returns `Promise<Boolean>`
+
+## .reset()
+Disables and resets firewall to installation defaults. **No prompt. Use this wisely.**
+> returns `Promise<Boolean>`
+
 ## .status(raw?: boolean)
 List of currently activated UFW.
 > returns `Promise<string | {to: string, action: string, from: string }[]>`
