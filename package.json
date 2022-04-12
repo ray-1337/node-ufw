@@ -5,11 +5,16 @@
 	"license": "MIT",
 	"typings": "./index.d.ts",
 	"main": "./index.js",
+	"files": [
+		"src/**/*", "index.js", "index.d.ts", "package.json"
+	],
 	"exports": {
 		".": [
-      { "require": "./index.js" },
-      "./index.js"
-    ]
+			{
+				"require": "./index.js"
+			},
+			"./index.js"
+		]
 	},
 	"funding": [
 		{
