@@ -1,8 +1,5 @@
 const util = require("./Util");
 
-util.checkNodeVersion();
-util.checkPlatform();
-
 module.exports = {
   name: require("../package.json").name,
   version: require("../package.json").version,
