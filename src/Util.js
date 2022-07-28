@@ -8,14 +8,9 @@ module.exports.checkSudo = function () {
 };
 
 module.exports.checkNodeVersion = function () {
-  let currentApropriateVersion = 14;
-  let nodeVersion = process.versions.node.split('.');
-
-  if (Number(nodeVersion[0]) < currentApropriateVersion) {
-    throw new Error(`The Node version must be at least v${currentApropriateVersion} or above.`);
-  };
-
-  return true;
+  const currentApropriateVersion = 14, nodeVersion = process.versions.node.split('.');
+  
+  return +nodeVersion[0] > currentApropriateVersion ? true : false;
 };
 
 module.exports.checkPlatform = function () {
