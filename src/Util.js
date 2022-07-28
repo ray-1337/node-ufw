@@ -1,4 +1,4 @@
-const {exec} = require("child_process");
+const {exec, execSync} = require("child_process");
 const {promisify} = require("util");
 const promisifiedExec = promisify(exec);
 const process = require("process");
@@ -56,19 +56,26 @@ module.exports.getDistroInfo = async function () {
   return current;
 };
 
-module.exports.checkPlatformExact = async function () {
-  let distroInfo = await this.getDistroInfo();
-  if (!distroInfo?.distributorID || !distroInfo?.distributorVersion) {
-    throw new Error("Missing distro platform information.");
-  };
+module.exports.checkPlatformExact = function () {
+  // let distroInfo = await this.getDistroInfo();
+  // if (!distroInfo?.distributorID || !distroInfo?.distributorVersion) {
+  //   throw new Error("Missing distro platform information.");
+  // };
 
-  // https://en.wikipedia.org/wiki/Uncomplicated_Firewall
-  let platform = distroInfo.distributorID;
-  if (String(platform).toLowerCase() !== "ubuntu") {
-    throw new Error("node-ufw only supported on Ubuntu.");
-  };
+  // // https://en.wikipedia.org/wiki/Uncomplicated_Firewall
+  // let platform = distroInfo.distributorID;
+  // if (String(platform).toLowerCase() !== "ubuntu") {
+  //   throw new Error("node-ufw only supported on Ubuntu.");
+  // };
 
-  return true;
+  // return true;
+
+  try {
+    return execSync("cat /etc/*release | grep -E ^NAME")?.toString("utf-8").split('=').pop().replace(/(")/gi, "").toLowerCase() == "ubuntu" ? true : false;
+  } catch (e) {
+    console.error(e);
+    return false;
+  };
 };
 
 module.exports.checkAppropriatePort = function(port) {
