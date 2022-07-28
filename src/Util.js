@@ -9,21 +9,13 @@ module.exports.checkSudo = function () {
 
 module.exports.checkNodeVersion = function () {
   const currentApropriateVersion = 14, nodeVersion = process.versions.node.split('.');
-  
+
   return +nodeVersion[0] > currentApropriateVersion ? true : false;
 };
 
 module.exports.checkPlatform = function () {
-  let platform = process.platform;
-  
   // https://nodejs.org/api/process.html#process_process_platform
-  let inappropriatePlatform = ['aix', 'darwin', 'freebsd', 'openbsd', 'sunos', 'win32'];
-
-  if (inappropriatePlatform.includes(platform)) {
-    throw new Error("Your platform must be at least Linux.");
-  };
-
-  return true;
+  return process.platform == "linux" ? true : false;
 };
 
 module.exports.getDistroInfo = async function () {
