@@ -71,7 +71,8 @@ module.exports.checkPlatformExact = function () {
   // return true;
 
   try {
-    return execSync("cat /etc/*release | grep -E ^NAME")?.toString("utf-8").split('=').pop().replace(/(")/gi, "").toLowerCase() == "ubuntu" ? true : false;
+    const check = execSync("cat /etc/*release | grep -E ^NAME");
+    return check?.toString("utf-8").match("Ubuntu") ? true : false;
   } catch (e) {
     console.error(e);
     return false;
