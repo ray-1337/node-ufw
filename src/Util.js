@@ -1,6 +1,6 @@
-const {exec, execSync} = require("child_process");
-const {promisify} = require("util");
-const promisifiedExec = promisify(exec);
+const {execSync} = require("child_process");
+// const {promisify} = require("util");
+// const promisifiedExec = promisify(exec);
 const process = require("process");
 
 module.exports.checkSudo = function () {
@@ -18,43 +18,43 @@ module.exports.checkPlatform = function () {
   return process.platform == "linux" ? true : false;
 };
 
-module.exports.getDistroInfo = async function () {
-  let current = {
-    distributorID: null, distributorVersion: null
-  };
+// module.exports.getDistroInfo = async function () {
+//   let current = {
+//     distributorID: null, distributorVersion: null
+//   };
 
-  try {
-    // check version
-    let {stdout, stderr} = await promisifiedExec('lsb_release -i -r');
+//   try {
+//     // check version
+//     let {stdout, stderr} = await promisifiedExec('lsb_release -i -r');
 
-    if (stderr) {
-      throw new Error(`Error while checking Linux distribution information: ${stderr}`);
-    };
+//     if (stderr) {
+//       throw new Error(`Error while checking Linux distribution information: ${stderr}`);
+//     };
 
-    if (stdout) {
-      // sanitize
-      let parsed = stdout
-      .split(/\r|\n/gi) // remove break lines
-      .map(x => x.replace(/\s/gi, "")) // remove spaces, only remains [e.g. DistributorID:Ubuntu]
-      .filter(x => x); // filter empty string
+//     if (stdout) {
+//       // sanitize
+//       let parsed = stdout
+//       .split(/\r|\n/gi) // remove break lines
+//       .map(x => x.replace(/\s/gi, "")) // remove spaces, only remains [e.g. DistributorID:Ubuntu]
+//       .filter(x => x); // filter empty string
 
-      let findDistributorID = parsed.find(val => val.match(/^(DistributorID)/gi));
-      let findReleaseVersion = parsed.find(val => val.match(/^(Release)/gi));
+//       let findDistributorID = parsed.find(val => val.match(/^(DistributorID)/gi));
+//       let findReleaseVersion = parsed.find(val => val.match(/^(Release)/gi));
 
-      if (findDistributorID) {
-        let splitViaColon = findDistributorID.split(/(:)/gi);
-        if (splitViaColon) current.distributorID = splitViaColon.pop().toLowerCase();
-      };
+//       if (findDistributorID) {
+//         let splitViaColon = findDistributorID.split(/(:)/gi);
+//         if (splitViaColon) current.distributorID = splitViaColon.pop().toLowerCase();
+//       };
 
-      if (findReleaseVersion) {
-        let splitViaColon = findReleaseVersion.split(/(:)/gi);
-        if (splitViaColon) current.distributorVersion = splitViaColon.pop().toLowerCase();
-      };
-    };
-  } catch {};
+//       if (findReleaseVersion) {
+//         let splitViaColon = findReleaseVersion.split(/(:)/gi);
+//         if (splitViaColon) current.distributorVersion = splitViaColon.pop().toLowerCase();
+//       };
+//     };
+//   } catch {};
 
-  return current;
-};
+//   return current;
+// };
 
 module.exports.checkPlatformExact = function () {
   // let distroInfo = await this.getDistroInfo();
