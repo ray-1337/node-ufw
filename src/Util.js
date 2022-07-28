@@ -1,21 +1,21 @@
 const {execSync} = require("child_process");
 // const {promisify} = require("util");
 // const promisifiedExec = promisify(exec);
-const process = require("process");
+const {getuid, versions, platform} = require("process");
 
 module.exports.checkSudo = function () {
-  return process.getuid && process.getuid() == 0 ? true : false;
+  return getuid && getuid() == 0 ? true : false;
 };
 
 module.exports.checkNodeVersion = function () {
-  const currentApropriateVersion = 14, nodeVersion = process.versions.node.split('.');
+  const currentApropriateVersion = 14, nodeVersion = versions.node.split('.');
 
   return +nodeVersion[0] > currentApropriateVersion ? true : false;
 };
 
 module.exports.checkPlatform = function () {
   // https://nodejs.org/api/process.html#process_process_platform
-  return process.platform == "linux" ? true : false;
+  return platform == "linux" ? true : false;
 };
 
 // module.exports.getDistroInfo = async function () {
@@ -87,9 +87,7 @@ module.exports.checkAppropriatePort = function(port) {
 };
 
 module.exports.checkAppropriateIP = function(address) {
-  if (typeof address !== "string") {
-    throw new Error("The address must be type of string.");
-  };
+  if (typeof address !== "string") throw new Error("The address must be type of string.");
 
   // https://blog.markhatton.co.uk/2011/03/15/regular-expressions-for-ip-addresses-cidr-ranges-and-hostnames/
   // also support subnet/net mask
