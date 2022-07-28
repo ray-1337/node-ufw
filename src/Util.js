@@ -72,16 +72,11 @@ module.exports.checkPlatformExact = async function () {
 };
 
 module.exports.checkAppropriatePort = function(port) {
-  if (typeof port !== "number") {
-    throw new Error("The port must be type of number.");
-  };
+  const portLimit = Math.round(2 ** 16 - 1);
 
-  let portLimit = Math.round(2 ** 16 - 1);
-  if (port <= 0 || port > portLimit) {
-    throw new Error("Exceeded port limit.");
-  };
+  if (typeof port !== "number") throw new Error("The port must be type of number.");
 
-  return true;
+  return (port > 0 || port <= portLimit) ? true : false;
 };
 
 module.exports.checkAppropriateIP = function(address) {
