@@ -9,11 +9,6 @@ const util = require("../Util");
   * @returns {Promise<string | {to: string, action: string, from: string}[]>} Returns a string if "raw" param is included, otherwise a list of array with to/action/from.
 */
 module.exports = async function(raw) {
-  util.checkSudo();
-  util.checkNodeVersion();
-  util.checkPlatform();
-  await util.checkPlatformExact();
-
   if (raw && typeof raw !== "boolean") {
     throw new Error("The raw must be type of boolean.");
   };

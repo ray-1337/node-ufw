@@ -10,11 +10,6 @@ const util = require("../Util");
   * @returns {Promise<Boolean>} Returns a boolean.
 */
 module.exports.port = async function (port, protocol) {
-  util.checkSudo();
-  util.checkNodeVersion();
-  util.checkPlatform();
-  await util.checkPlatformExact();
-  
   try {
     if (!port) throw new Error("Missing port input.");
     if (typeof port !== "number") throw new Error("The port must be type of number.");
@@ -56,10 +51,6 @@ module.exports.port = async function (port, protocol) {
   * @returns {Promise<Boolean>} Returns a boolean.
 */
 module.exports.address = async function (address, port, protocol) {
-  util.checkNodeVersion();
-  util.checkPlatform();
-  await util.checkPlatformExact();
-
   try {
     // address validation
     if (!address) throw new Error("Missing address input.");

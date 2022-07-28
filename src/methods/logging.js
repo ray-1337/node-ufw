@@ -9,11 +9,6 @@ const util = require("../Util");
   * @returns {Promise<Boolean>} Returns a boolean.
 */
 module.exports = async function(type) {
-  util.checkSudo();
-  util.checkNodeVersion();
-  util.checkPlatform();
-  await util.checkPlatformExact();
-
   try {
     if (!type) throw new Error("Missing type input.");
     if (typeof type !== "string") throw new Error("The type must be type of string.");

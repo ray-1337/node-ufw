@@ -9,11 +9,6 @@ const util = require("../Util");
   * @returns {Promise<Boolean>} Returns a boolean.
 */
 module.exports = async function(num) {
-  util.checkSudo();
-  util.checkNodeVersion();
-  util.checkPlatform();
-  await util.checkPlatformExact();
-  
   try {
     if (!num) throw new Error("Missing num input.");
     if (typeof num !== "number") throw new Error("The num must be type of number.");

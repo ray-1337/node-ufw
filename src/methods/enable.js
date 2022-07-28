@@ -8,11 +8,6 @@ const util = require("../Util");
   * @returns {Promise<Boolean>} Returns a boolean.
 */
 module.exports = async function() {
-  util.checkSudo();
-  util.checkNodeVersion();
-  util.checkPlatform();
-  await util.checkPlatformExact();
-
   try {
     // https://serverfault.com/a/790150
     let res = await promisifiedExec(`echo "y" | sudo ufw enable`);
