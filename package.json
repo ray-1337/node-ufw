@@ -1,7 +1,7 @@
 {
 	"name": "node-ufw",
 	"version": "1.0.0-alpha.8",
-	"description": "Manipulate UFW (Linux distribution only, works best on Ubuntu) via Node.",
+	"description": "Manipulate UFW (Ubuntu distribution only) via Node.js.",
 	"license": "MIT",
 	"typings": "./index.d.ts",
 	"main": "./index.js",
