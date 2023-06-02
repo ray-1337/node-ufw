@@ -9,11 +9,8 @@ This also requires **root** access, or else you'll get an error from ufw itself/
 
 ## Installation
 ```shell
-# npm
 $ npm install node-ufw
-
-# yarn
-$ yarn add node-ufw
+$ pnpm add node-ufw
 ```
 
 ## Usage
