@@ -1,7 +1,0 @@
-.eslintrc*.yml
-*.log
-*.tar.gz
-docs
-node_modules
-test
-yarn
