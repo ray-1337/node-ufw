@@ -31,7 +31,7 @@ await nodeUfw.enable();
 ```
 
 ## Documentations
-See [DOCS](https://github.com/ray-1337/node-ufw/blob/master/docs/DOCS.md).
+See [DOCS](docs/DOCS.md).
 
 ## LICENSE
-See [LICENSE](https://github.com/ray-1337/node-ufw/blob/master/LICENSE).
+See [LICENSE](LICENSE).
