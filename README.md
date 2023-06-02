@@ -17,8 +17,10 @@ $ yarn add node-ufw
 ```
 
 ## Usage
+
 ```js
-const nodeUfw = require("node-ufw");
+const nodeUfw = require("node-ufw").default; // JavaScript
+import nodeUfw from "node-ufw"; // TypeScript
 
 await nodeUfw.allow.port(6379);
 await nodeUfw.deny.port(25565, "udp");
