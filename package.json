@@ -41,7 +41,7 @@
 		"url": "https://13373333.one"
 	},
 	"engines": {
-		"node": ">=14"
+		"node": ">=16"
 	},
 	"keywords": [
 		"ufw",

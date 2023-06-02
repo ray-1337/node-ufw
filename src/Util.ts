@@ -18,7 +18,8 @@ export function checkSudo() {
 };
 
 export function checkNodeVersion() {
-  const currentApropriateVersion = 14, nodeVersion = versions.node.split('.');
+  const currentApropriateVersion = 16;
+  const nodeVersion = versions.node.split('.');
 
   return +nodeVersion[0] > currentApropriateVersion ? true : false;
 };
