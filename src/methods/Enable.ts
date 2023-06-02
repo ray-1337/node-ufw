@@ -1,13 +1,8 @@
-const {exec} = require("child_process");
-const {promisify} = require("util");
+import { exec } from "node:child_process";
+import { promisify } from "node:util";
 const promisifiedExec = promisify(exec);
-const util = require("../Util");
 
-/**
-  * Enable ufw. (root/sudo access is mandatory)
-  * @returns {Promise<Boolean>} Returns a boolean.
-*/
-module.exports = async function() {
+export default async function() {
   try {
     // https://serverfault.com/a/790150
     let res = await promisifiedExec(`echo "y" | sudo ufw enable`);
@@ -20,6 +15,6 @@ module.exports = async function() {
       return false;
     };
   } catch (err) {
-    throw new Error(err);
+    throw err;
   };
 };
