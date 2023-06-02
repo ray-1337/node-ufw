@@ -1,11 +1,10 @@
 # Node UFW
-Manipulate UFW (Linux distribution only, works best on Ubuntu) via Node.js.
-> This module is under development. Use with caution.
+Manipulate UFW (Linux distribution only) through Node.js.
 
 ## System Requirements
-Only supported on [Node.js](https://nodejs.org) version 14 or above, and Ubuntu version 18 or above.
+The module only supports [Node.js](https://nodejs.org) up to version 16, and Ubuntu version 18 or above.
 
-This also requires **root** access, or else you'll get an error from ufw itself/password prompt from Ubuntu.
+This also requires **root** access, otherwise you will get an error from `ufw` itself, asking you a password with prompt.
 
 ## Installation
 ```shell
@@ -14,7 +13,6 @@ $ pnpm add node-ufw
 ```
 
 ## Usage
-
 ```js
 const nodeUfw = require("node-ufw").default; // JavaScript
 import nodeUfw from "node-ufw"; // TypeScript
