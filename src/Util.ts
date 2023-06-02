@@ -1,5 +1,17 @@
-import { execSync } from "node:child_process";
+import { execSync, exec } from "node:child_process";
 import { getuid, versions, platform } from "node:process";
+import { promisify } from "node:util";
+
+export async function runCommand(command: string) {
+  const promisifiedExec = promisify(exec);
+  const { stderr, stdout } = await promisifiedExec(command);
+
+  if (stderr) {
+    throw stderr;
+  };
+
+  return stdout?.length ? stdout : null;
+};
 
 export function checkSudo() {
   return getuid && getuid() == 0 ? true : false;

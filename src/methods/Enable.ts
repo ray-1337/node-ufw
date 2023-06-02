@@ -1,19 +1,10 @@
-import { exec } from "node:child_process";
-import { promisify } from "node:util";
-const promisifiedExec = promisify(exec);
+import { runCommand } from "../Util";
 
 export default async function() {
   try {
     // https://serverfault.com/a/790150
-    let res = await promisifiedExec(`echo "y" | sudo ufw enable`);
-
-    if (res.stderr) throw new Error(res.stderr);
-
-    if (res.stdout) {
-      return true;
-    } else {
-      return false;
-    };
+    let command = await runCommand(`echo "y" | sudo ufw enable`);
+    return command !== null;
   } catch (err) {
     throw err;
   };
