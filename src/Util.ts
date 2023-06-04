@@ -2,6 +2,10 @@ import { execSync, exec } from "node:child_process";
 import { getuid, versions, platform } from "node:process";
 import { promisify } from "node:util";
 
+export function isAddedOrUpdated(response: string) {
+  return /((adde|update)d)/gi.test(response.toLowerCase());
+};
+
 export const shouldDryRunDuringTesting = process.env.npm_lifecycle_event === "test" ? "--dry-run" : "";
 
 export async function runCommand(command: string) {
