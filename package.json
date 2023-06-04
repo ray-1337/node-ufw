@@ -33,8 +33,13 @@
 		"url": "https://github.com/ray-1337/node-ufw/issues"
 	},
 	"scripts": {
-		"test": "ava test.js"
+		"test": "ava Test.ts"
 	},
+  "ava": {
+    "extensions": [ "ts" ],
+    "environmentVariables": { "TS_NODE_LOG_ERROR": "true" },
+    "require": [ "ts-node/register" ]
+  },
 	"author": {
 		"name": "Hizkia Ray",
 		"email": "personal@13373333.one",
