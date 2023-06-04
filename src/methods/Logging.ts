@@ -1,4 +1,4 @@
-import { runCommand } from "../Util";
+import { runCommand, shouldDryRunDuringTesting } from "../Util";
 import type { LoggingType } from "../Typings";
 
 /**
@@ -6,7 +6,7 @@ import type { LoggingType } from "../Typings";
 */
 export default async function(type: LoggingType) {
   try {
-    let command = await runCommand(`sudo ufw logging ${type}`);
+    let command = await runCommand(`sudo ufw ${shouldDryRunDuringTesting} logging ${type}`);
     return command !== null;
   } catch (err) {
     throw err;

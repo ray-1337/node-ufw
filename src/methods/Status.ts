@@ -1,12 +1,12 @@
 import type { ParsedStatus } from "../Typings";
-import { runCommand } from "../Util";
+import { runCommand, shouldDryRunDuringTesting } from "../Util";
 
 /**
   * List of currently activated ufw. (root/sudo access is mandatory)
 */
 export default async function(raw?: boolean): Promise<string | ParsedStatus[] | null> {
   try {
-    let command = await runCommand("sudo ufw status");
+    let command = await runCommand(`sudo ufw ${shouldDryRunDuringTesting} status`);
 
     if (command) {
       if (raw) return command;

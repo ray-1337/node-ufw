@@ -1,4 +1,4 @@
-import { checkAppropriatePort, checkAppropriateIP, runCommand } from "../Util";
+import { checkAppropriatePort, checkAppropriateIP, runCommand, shouldDryRunDuringTesting } from "../Util";
 import type { PortProtocol } from  "../Typings";
 
 /**
@@ -10,7 +10,7 @@ async function port(port: number, protocol?: PortProtocol) {
     let checkPort = checkAppropriatePort(port);
     if (!checkPort) return false;
 
-    let command = await runCommand(`echo "y" | sudo ufw allow ${port}${protocol ? `/${protocol}` : ""}`);
+    let command = await runCommand(`echo "y" | sudo ufw ${shouldDryRunDuringTesting} allow ${port}${protocol ? `/${protocol}` : ""}`);
     return command ? command.toLowerCase().match(/(added)/gi) !== null : false;
   } catch (err) {
     throw err;

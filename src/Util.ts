@@ -2,6 +2,8 @@ import { execSync, exec } from "node:child_process";
 import { getuid, versions, platform } from "node:process";
 import { promisify } from "node:util";
 
+export const shouldDryRunDuringTesting = process.env.npm_lifecycle_event === "test" ? "--dry-run" : "";
+
 export async function runCommand(command: string) {
   const promisifiedExec = promisify(exec);
   const { stderr, stdout } = await promisifiedExec(command);
