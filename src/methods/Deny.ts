@@ -20,7 +20,7 @@ async function port(port: number, protocol?: PortProtocol) {
 /**
   * Deny incoming requests through specific (IP) address. (root/sudo access is mandatory)
 */
-async function address(address: string, port: number, protocol?: PortProtocol) {
+async function address(address: string, port?: number, protocol?: PortProtocol) {
   try {
     // address validation
     let checkAddress = checkAppropriateIP(address);
